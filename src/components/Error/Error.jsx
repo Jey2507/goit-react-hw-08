@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { selectError } from "../../redux/contactsSlice"
+import { selectError } from "../../redux/contacts/slice"
 import css from "../Error/Error.module.css"
 
 export default function Error() {

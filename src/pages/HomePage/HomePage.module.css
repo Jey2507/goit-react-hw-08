@@ -1,0 +1,33 @@
+.title {
+    width: 1200px;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0px auto 8px auto;
+}
+
+.list {
+    width: 1160px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.titleTwo {
+    width: 1200px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0px auto 16px auto;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.descr {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+}

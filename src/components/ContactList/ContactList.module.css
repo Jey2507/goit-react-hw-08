@@ -5,3 +5,11 @@
     margin: 0px;
     padding: 0;
 }
+
+.title {
+    font-size: 24px;
+    font-weight: 600px;
+    margin-top: 4px;
+    color: rgb(24, 21, 21);
+    text-shadow: 2px 4px 4px rgba(1, 57, 106, 0.5);
+}

@@ -1,11 +1,12 @@
 import css from "../ContactForm/ContactForm.module.css"
-import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Formik, Form, Field} from "formik"
 import { useId } from "react";
 import * as Yup from "yup"
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operation"; 
 import { useDispatch } from "react-redux";
+import { Fab, TextField } from "@mui/material";
 
-
+import AddIcon from "@mui/icons-material/Add"
 
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
@@ -32,18 +33,39 @@ export default function ContactForm() {
             <Formik initialValues={initialValues} onSubmit={hadleSubmit} validationSchema={FeedbackSchema}>
                 <Form className={css.form}>
                     <div className={css.container}>
-                        <label className={css.label} htmlFor={nameId}>Name</label>
-                        <Field className={css.input} name="name" id={nameId}/>
-                        <ErrorMessage className={css.error} name="name" component="span"/>
+                    <Field name="name">
+                            {({ field, form }) => (
+                                <TextField 
+                                    {...field} 
+                                    label="Name" 
+                                    variant="filled" 
+                                    id={nameId} 
+                                    error={form.touched.name && form.errors.name} // Показуємо помилку, якщо поле потрібно і містить помилку
+                                    helperText={form.touched.name && form.errors.name} // Текст допомоги для показу помилки
+                                />
+                            )}
+                        </Field>
+
                     </div>
                     
                     <div className={css.container}>
-                        <label className={css.label} htmlFor={numberId}>Number</label>
-                        <Field className={css.input} name="number" id={numberId}/>
-                        <ErrorMessage className={css.error} name="number" component="span"/>
+                    <Field name="number">
+                            {({ field, form }) => (
+                                <TextField 
+                                    {...field} 
+                                    label="Number" 
+                                    variant="filled" 
+                                    id={numberId} 
+                                    error={form.touched.number && form.errors.number} 
+                                    helperText={form.touched.number && form.errors.number} 
+                                />
+                            )}
+                        </Field>
                     </div>
 
-                    <button className={css.button} type="submit">Add</button>
+                    <Fab color="primary" aria-label="add" type="submit" >
+                        <AddIcon />
+                    </Fab>
                 </Form>
             </Formik>
         </>
