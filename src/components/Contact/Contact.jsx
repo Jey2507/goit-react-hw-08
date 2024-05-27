@@ -2,7 +2,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { FaPhoneAlt } from "react-icons/fa";
 import css from "../Contact/Contact.module.css";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operation";
+import { deleteContact } from "../../redux/contacts/operations";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/DeleteSweepRounded"
 import toast from "react-hot-toast";

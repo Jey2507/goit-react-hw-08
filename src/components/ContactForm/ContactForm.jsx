@@ -2,7 +2,7 @@ import css from "../ContactForm/ContactForm.module.css"
 import { Formik, Form, Field} from "formik"
 import { useId } from "react";
 import * as Yup from "yup"
-import { addContact } from "../../redux/contacts/operation"; 
+import { addContact } from "../../redux/contacts/operations"; 
 import { useDispatch } from "react-redux";
 import { Fab, TextField } from "@mui/material";
 
