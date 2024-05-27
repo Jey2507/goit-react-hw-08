@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Fab, TextField } from "@mui/material";
 
 import AddIcon from "@mui/icons-material/Add"
+import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
@@ -24,7 +25,13 @@ export default function ContactForm() {
     const dispatch = useDispatch()
 
     const hadleSubmit = (values, actions) => {
-        dispatch(addContact(values))
+        dispatch(addContact(values)).unwrap()
+        .then(() => {
+          toast.success("Success!!!");
+        })
+        .catch(error => {
+          toast.error(error);
+        });
         actions.resetForm();
     }
 

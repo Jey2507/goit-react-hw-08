@@ -4,13 +4,21 @@ import { register } from "../../redux/auth/operations";
 
 import css from "../RegistrationForm/RegistrationForm.module.css"
 import { Button, TextField } from "@mui/material";
+import toast from "react-hot-toast";
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values));
-    console.log(values)
+    dispatch(register(values))
+    .unwrap()
+      .then(() => {
+        toast.success("Registration is success!!!");
+      })
+      .catch(error => {
+        toast.error(error);
+      });
+
     actions.resetForm();
   };
 

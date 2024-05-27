@@ -12,7 +12,7 @@ export default function ContactPage() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    if (!isRefreshing && isLoggedIn) { // Змінено: виконує fetchContacts тільки після завершення оновлення і якщо користувач залогінений
+    if (!isRefreshing && isLoggedIn) { 
       dispatch(fetchContacts());
     }
   }, [isRefreshing, isLoggedIn, dispatch]);
